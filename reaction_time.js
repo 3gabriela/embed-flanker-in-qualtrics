@@ -245,24 +245,6 @@ function startNextRound() {
   loadTrialRound(currentRound-99);
 }
 
-function showScoreScreen() {
-  $(".beginRoundHide").fadeOut();
-  $("#question").fadeOut();
-  $("#answer").fadeOut(showScoreScreenHelper);  
-}
-
-function showScoreScreenHelper() {
-  var fraction_correct = Math.ceil(100*numCorrect/num_trials);
-  var ave_response_time = Math.floor(totalReactionTime/num_trials);
-  
-  if (ave_response_time < 0) {
-    alert(totalReactionTime+" "+num_trials);
-  }
-  
-  $("#percent_correct").html(fraction_correct+"%");
-  $("#ave_response").html(ave_response_time);
-  $("#score_screen").fadeIn();
-  
   experimentComplete();
-  parent.postMessage('end study','*');
+
 }
